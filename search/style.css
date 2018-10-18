@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%
+}
+
+#container {
+    position: relative;
+}
+
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.set-icon {
+    position: absolute;
+    top: 0;
+    padding: 8px;
+    color: #666;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.transform-icon {
+    transform: rotateY(180deg);
+}
+
+@keyframes iconChange {
+    from {}
+
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes iconRecover {
+    from {
+        transform: rotateY(180deg);
+    }
+
+    to {
+        transform: rotateY(0);
+    }
+}
+
+.ipt {
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 40px;
+    text-indent: 40px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 7px rgb(54, 44, 44);
+    cursor: pointer;
+}
+
+.ipt-active {
+    text-align: left;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+}
+
+@keyframes searchChange {
+    from {}
+
+    10% {
+        text-align: left;
+        border-radius: 4px;
+    }
+
+    to {
+        text-align: left;
+        height: 40px;
+        width: 200px;
+        border-radius: 4px;
+    }
+}
+
+@keyframes searchRecover {
+    from {
+        text-align: left;
+        height: 40px;
+        width: 200px;
+        border-radius: 4px;
+    }
+
+    50% {
+        border-radius: 25%;
+    }
+
+    to {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+}

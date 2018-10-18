@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="container">
+        <input type="text" class="ipt" placeholder="Search for something...">
+        <svg class="icon set-icon" aria-hidden="true">
+            <use xlink:href="#icon-Search"></use>
+        </svg>
+    </div>
+
+</body>
+<script>
+    window.onload = function () {
+        let timer1 = null;
+        let timer2 = null;
+        let isActive = false;
+        const ipt = document.querySelector('.ipt');
+        const icon = document.querySelector('.set-icon');
+        icon.onclick = click;
+
+        function click() {
+            clearInterval(timer1);
+            clearInterval(timer2);
+            if (isActive) {
+                searchRecover();
+                return;
+            }
+            searchChange();
+        }
+
+        function searchChange() {
+            isActive = true;
+            icon.style.animation = 'iconChange .5s';
+            ipt.style.animation = 'searchChange .5s';
+            ipt.autoFocus = 'autofocus';
+            timer = setTimeout(function () {
+                icon.classList.add('transform-icon')
+                ipt.classList.add('ipt-active');
+            }, 450)
+        }
+
+        function searchRecover() {
+            isActive = false;
+            icon.style.animation = 'iconRecover .5s';
+            ipt.style.animation = 'searchRecover .5s';
+            timer2 = setTimeout(function () {
+                icon.classList.remove('transform-icon')
+                ipt.classList.remove('ipt-active');
+            }, 450)
+        }
+    }
+</script>
+<script src="./iconfont.js"></script>
+
+</html>
